@@ -1,35 +1,10 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
+        stage('Stage 1') {
             steps {
-                // Code to build the project
-                echo 'Building the project...'
+                echo 'Hellow world!'
             }
-        }
-
-        stage('Test') {
-            steps {
-                // Code to run tests
-                echo 'Running tests...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Code to deploy the application
-                echo 'Deploying the application...'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline succeeded! Send notifications, etc.'
-        }
-        failure {
-            echo 'Pipeline failed! Send notifications, etc.'
         }
     }
 }

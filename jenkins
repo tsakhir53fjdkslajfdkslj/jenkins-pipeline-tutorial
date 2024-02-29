@@ -1,10 +1,51 @@
 pipeline {
     agent any
+
     stages {
-        stage('Stage 1') {
+        stage('Checkout') {
             steps {
-                echo 'Hellow world!'
+                // Code to checkout source code from version control system e.g git 
+                checkout scm
             }
         }
+
+        stage('Build') {
+            steps {
+                // Code yo build your project (e.g., compile code)
+                sh 'mvn clean install'
+                
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Code to run tests
+                sh 'mvn test'
+            }
+
+
+        }
+
+        stage('Deploy') {
+            steps {
+                // Code to deploy your application (e.g., copy files to a server )
+                sh 'deploy.sh'
+            }
+
+        }
+
+    }
+
+    post {
+        success {
+            // Code to run If Pipeline is successful
+            echo 'Pipeline successful!'
+
+        }
+        failure {
+            // Code to run if the pipeline fails
+            echo 'Pipeline failed!'
+        }
+
     }
 }

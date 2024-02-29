@@ -1,35 +1,35 @@
 pipeline {
-    agent any 
+    agent any
+
     stages {
-        stage('Static Analysis') {
+        stage('Build') {
             steps {
-                echo 'Run the static analysis to the code' 
+                // Code to build the project
+                echo 'Building the project...'
             }
         }
-        stage('Compile') {
+
+        stage('Test') {
             steps {
-                echo 'Compile the source code' 
+                // Code to run tests
+                echo 'Running tests...'
             }
         }
-        stage('Security Check') {
+
+        stage('Deploy') {
             steps {
-                echo 'Run the security check against the application' 
+                // Code to deploy the application
+                echo 'Deploying the application...'
             }
         }
-        stage('Run Unit Tests') {
-            steps {
-                echo 'Run unit tests from the source code' 
-            }
+    }
+
+    post {
+        success {
+            echo 'Pipeline succeeded! Send notifications, etc.'
         }
-        stage('Run Integration Tests') {
-            steps {
-                echo 'Run only crucial integration tests from the source code' 
-            }
-        }
-        stage('Publish Artifacts') {
-            steps {
-                echo 'Save the assemblies generated from the compilation' 
-            }
+        failure {
+            echo 'Pipeline failed! Send notifications, etc.'
         }
     }
 }

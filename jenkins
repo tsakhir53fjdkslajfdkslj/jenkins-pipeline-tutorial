@@ -1,44 +1,34 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Checkout') {
+        stage ('Build') {
             steps {
-                // Code to checkout source code from version control system (e.g., Git)
-                checkout scm
+                echo 'Building...'
+                // Your build  steps or commands go here
             }
         }
-        
-        stage('Build') {
+    stage ('Test') {
             steps {
-                // Code to build your project (e.g., compile code)
-                sh 'mvn clean install'
+                echo 'Testing...'
+                // Your testing steps or commands go here
             }
-        }
-        
-        stage('Test') {
-            steps {
-                // Code to run tests
-                sh 'mvn test'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                // Code to deploy your application (e.g., copy files to a server)
-                sh 'deploy.sh'
-            }
-        }
     }
-    
+    stage ('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Your deployment steps or commands go here 
+            }
+    }
+
     post {
         success {
-            // Code to run if the pipeline is successful
-            echo 'Pipeline successful!'
+            echo 'Pipeline succeeded! Do something else here...'
         }
         failure {
-            // Code to run if the pipeline fails
-            echo 'Pipeline failed!'
+            echo 'Pipeline failed! Do something else here...'
         }
     }
+    }
+
 }

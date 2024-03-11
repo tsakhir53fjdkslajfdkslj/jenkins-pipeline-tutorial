@@ -1,35 +1,10 @@
 pipeline {
     agent any
-
     stages {
-        stage ('Build') {
+        stage('Build') { 
             steps {
-                echo 'Building and performing mpm build....'
-                // Your build  steps or commands go here
-                sh 'npm install'
+                sh 'npm install' 
             }
         }
-    stage ('Test') {
-            steps {
-                echo 'Testing...'
-                // Your testing steps or commands go here
-            }
     }
-    stage ('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Your deployment steps or commands go here 
-            }
-    }
-    }
-    post {
-        success {
-            echo 'Pipeline succeeded! Do something else here...'
-        }
-        failure {
-            echo 'Pipeline failed! Do something else here...'
-        }
-    }
-    
-
 }

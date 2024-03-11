@@ -20,7 +20,7 @@ pipeline {
                 // Your deployment steps or commands go here 
             }
     }
-
+    }
     post {
         success {
             echo 'Pipeline succeeded! Do something else here...'
@@ -29,6 +29,6 @@ pipeline {
             echo 'Pipeline failed! Do something else here...'
         }
     }
-    }
+    
 
 }

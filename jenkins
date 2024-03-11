@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                echo 'Building...'
+                echo 'Building and performing mpm build....'
                 // Your build  steps or commands go here
                 sh 'npm install'
             }
